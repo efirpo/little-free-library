@@ -155,6 +155,7 @@ _Have a bug or an issue with this application? [Open a new issue](https://github
 | :------------- | :------------- | :------------- |
 | **Data visualization of libraries the book has been** | User Input:"Click: Howl's Moving Castle" | Output: “Map of book journey” |
 | **Include data about businesses or organizations that may be connected to a library** | User Input: Follow link to business data | Output: Page now displays organization data. | 
+| **Add a model for copies of books linked to book ID** | Book: BookID, Title, Author | Copy: CopyID, BookID, Condition, CurrentLocation, Locations, Users | 
 
 
 ### Resources
