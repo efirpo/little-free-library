@@ -1,0 +1,6 @@
+bin/
+obj/
+.vscode
+appsettings.json
+EnvironmentalVariables.cs
+# specify path^^^^
