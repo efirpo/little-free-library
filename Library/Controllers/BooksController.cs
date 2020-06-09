@@ -16,48 +16,25 @@ namespace Library.Controllers
       _db = db;
     }
 
-    // GET api/books/GetAll
-    [ActionName("GetAll")]
-    public ActionResult<IEnumerable<Book>> GetAll()
-    {
-      return _db.Books.ToList();
-    }
-
     //GET api/books
-    // [ActionName("Get")]
-    public ActionResult<IEnumerable<Book>> GetTitle(string title)
+    [HttpGet]
+    public ActionResult<IEnumerable<Book>> Get(string title, string author, bool available)
     {
       var query = _db.Books.AsQueryable();
       if (title != null)
       {
         query = query.Where(entry => entry.Title == title);
       }
+      if (author != null)
+      {
+        query = query.Where(entry => entry.Author == author);
+      }
+      if (available == true)
+      {
+        query = query.Where(entry => entry.Available == available);
+      }
       return query.ToList();
     }
-
-    // //GET api/books
-    // [HttpGet("{title, author, available, bookId}"), ActionName("Get")]
-    // public ActionResult<IEnumerable<Book>> Get(string title, string author, bool available, int bookId)
-    // {
-    //   var query = _db.Books.AsQueryable();
-    //   if (title != null)
-    //   {
-    //     query = query.Where(entry => entry.Title == title);
-    //   }
-    //   if (author != null)
-    //   {
-    //     query = query.Where(entry => entry.Author == author);
-    //   }
-    //   if (available != null)
-    //   {
-    //     query = query.Where(entry => entry.Available == available);
-    //   }
-    //   if (bookId != null)
-    //   {
-    //     query = query.Where(entry => entry.BookId == bookId);
-    //   }
-    //   return query.ToList();
-    // }
 
     //POST api/books
     [HttpPost]

@@ -16,12 +16,6 @@ namespace Library.Controllers
       _db = db;
     }
 
-    // GET api/locations
-    [HttpGet]
-    public ActionResult<IEnumerable<Location>> Get()
-    {
-      return _db.Locations.ToList();
-    }
     [HttpPost]
 
     //POST api/locations
@@ -56,7 +50,9 @@ namespace Library.Controllers
       }
       if (Latitude != null && Longitude != null)
       {
-        query = query.Where(entry => (entry.Latitude < (Latitude + 0.010) && entry.Latitude > (Latitude - 0.010))).Where(entry => (entry.Longitude < (Longitude + 0.010) && entry.Longitude > (Longitude - 0.010)));
+        query = query
+        .Where(entry => (entry.Latitude < (Latitude + 0.010) && entry.Latitude > (Latitude - 0.010)))
+        .Where(entry => (entry.Longitude < (Longitude + 0.010) && entry.Longitude > (Longitude - 0.010)));
       }
       return query.ToList();
     }
