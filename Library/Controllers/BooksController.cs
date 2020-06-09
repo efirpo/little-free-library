@@ -10,7 +10,7 @@ namespace Library.Controllers
   [ApiController]
   public class BooksController : ControllerBase
   {
-    private LibraryContext _db;
+    private readonly LibraryContext _db;
     public BooksController(LibraryContext db)
     {
       _db = db;

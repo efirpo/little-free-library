@@ -3,14 +3,13 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Library.Models;
-using System;
 
 namespace Library.Controllers
 {
   [Route("api/[controller]")]
-  public class LocationsController : Controller
+  public class LocationsController : ControllerBase
   {
-    private LibraryContext _db;
+    private readonly LibraryContext _db;
 
     public LocationsController(LibraryContext db)
     {
@@ -44,7 +43,6 @@ namespace Library.Controllers
     [ActionName("Get")]
     public ActionResult<IEnumerable<Location>> Search(string name, float Latitude, float Longitude)
     {
-      Console.WriteLine(Latitude);
       var query = _db.Locations.AsQueryable();
       if (name != null)
       {
