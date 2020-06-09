@@ -3,6 +3,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Library.Models;
+using System;
 
 namespace Library.Controllers
 {
@@ -43,12 +44,13 @@ namespace Library.Controllers
     [ActionName("Get")]
     public ActionResult<IEnumerable<Location>> Search(string name, float Latitude, float Longitude)
     {
+      Console.WriteLine(Latitude);
       var query = _db.Locations.AsQueryable();
       if (name != null)
       {
         query = query.Where(entry => entry.Name == name);
       }
-      if (Latitude != null && Longitude != null)
+      if (Latitude != 0 && Longitude != 0)
       {
         query = query
         .Where(entry => (entry.Latitude < (Latitude + 0.010) && entry.Latitude > (Latitude - 0.010)))
