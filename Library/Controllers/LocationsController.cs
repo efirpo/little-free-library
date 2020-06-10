@@ -41,12 +41,16 @@ namespace Library.Controllers
     //GET api/locations/1
 
     [HttpGet]
-    public ActionResult<IEnumerable<Location>> Get(string name, float Latitude, float Longitude)
+    public ActionResult<IEnumerable<Location>> Get(string name, string address, float Latitude, float Longitude)
     {
       var query = _db.Locations.AsQueryable();
       if (name != null)
       {
         query = query.Where(entry => entry.Name == name);
+      }
+      if (address != null)
+      {
+        query = query.Where(entry => entry.Address == address);
       }
       if (Latitude != 0 && Longitude != 0)
       {
