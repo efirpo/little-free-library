@@ -90,15 +90,20 @@ _Have a bug or an issue with this application? [Open a new issue](https://github
 | **User can add a book to a location** | User Input:"Click: Dropoff" | Output: Dropoff form: Book ID” |
 | **User can add location** | User Input:"Click: Add Library" | Output: Add library form: Address: Location 88th & Oak, 8885 Nw Oak St, Portland OR 97229, Charter ID: Auto Incremented” |
 | **User can update books condition and availability** | User Input:"Click: Book ID, Click: Update" | Output: “Condition and Location Form: Condition: Poor Location: Charter 98701” |
-| **User can delete books available at a location when checked out** | User Input:"Click: Charter 23646, Click: Checkout, Click: Six of Crows" | Output: “Available books: Howl's Moving Castle, The Cruel Prince” |
-| **User can delete books completely if they are the original owners** | User Input:"Your Contributions > Click Book > Click Remove" | Output: “Are you sure you want to take Six of Crows out of circulation? > Yes > Remove from database” |
-| **User can look up random books** | User Input:"Find random book" | Output: “Title: Howl's Moving Castle, Author: Dianna Wynne Jones, Condition: Good, Location: Charter 98701” |
-| **User can search for a book** | User Input:"Search by title: Howl's Moving Castle" | Output: "Title: Howl's Moving Castle, Author: Dianna Wynne Jones, Condition: Good, Location: Charter 98701, Book ID: Auto Incremented” |
-| **User can search for a little library location** | User Input:"Locations near me" | Output: “Charter 98701, Charter 23646” |
+| **User can delete books completely** | User Input:"Your Contributions > Click Book > Click Remove" | Output: “Are you sure you want to take Six of Crows out of circulation? > Yes > Remove from database” |
+| **User can search for a book by title** | User Input:"Search by title: Howl's Moving Castle" | Output: "Title: Howl's Moving Castle, Author: Dianna Wynne Jones, Condition: Good, Location: Charter 98701, Book ID: Auto Incremented” |
+| **User can search for a book by author** | User Input:"Search by author: Dianna Wynne Jones" | Output: "Title: Howl's Moving Castle, Author: Dianna Wynne Jones, Condition: Good, Location: Charter 98701, Book ID: Auto Incremented” |
+| **User can search for a book by id** | User Input:"Search by id: 1" | Output: "Title: Howl's Moving Castle, Author: Dianna Wynne Jones, Condition: Good, Location: Charter 98701, Book ID: Auto Incremented” |
+| **User can search for a little library location by charter name** | User Input: "Name: 67860" | Output: “Name: Charter 67860, Address = "113 se 28th ave, Portland OR 97214", Latitude = 45.521F, Longitude = -122.637F” |
+| **User can search for a little library location by longitude and latitude** | User Input: "Latitude = 45.521F, Longitude = -122.637F" | Output: “Name: Charter 67860, Address = "113 se 28th ave, Portland OR 97214", Latitude = 45.521F, Longitude = -122.637F” |
+| **User can search for a little library location by address** | User Input: "113 se 28th ave, Portland OR 97214" | Output: “Name: Charter 67860, Address = "113 se 28th ave, Portland OR 97214", Latitude = 45.521F, Longitude = -122.637F” |
 
 ### Stretch Goals
 | Spec | Input | Output |
 | :------------- | :------------- | :------------- |
+| **User can delete books available at a location when checked out** | User Input:"Click: Charter 23646, Click: Checkout, Click: Six of Crows" | Output: “Available books: Howl's Moving Castle, The Cruel Prince” |
+| **User can delete books completely if they are the original owners** | User Input:"Your Contributions > Click Book > Click Remove" | Output: “Are you sure you want to take Six of Crows out of circulation? > Yes > Remove from database” |
+| **User can look up random books** | User Input:"Find random book" | Output: “Title: Howl's Moving Castle, Author: Dianna Wynne Jones, Condition: Good, Location: Charter 98701” |
 | **Data visualization of libraries the book has been** | User Input:"Click: Howl's Moving Castle" | Output: “Map of book journey” |
 | **Include data about businesses or organizations that may be connected to a library** | User Input: Follow link to business data | Output: Page now displays organization data. | 
 | **Add a model for copies of books linked to book ID** | Book: BookID, Title, Author | Copy: CopyID, BookID, Condition, CurrentLocation, Locations, Users | 
